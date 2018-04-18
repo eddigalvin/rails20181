@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  salesTax: 9.99
+  shippingFee: 9.99
+  total: 9.99
+  methodOfPayment: MyString
+
+two:
+  user_id: 1
+  salesTax: 9.99
+  shippingFee: 9.99
+  total: 9.99
+  methodOfPayment: MyString

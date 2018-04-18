@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  manu: MyString
+  model: MyString
+  desc: MyText
+  procname: MyString
+  proc_id: 1
+  memsize: 1
+  mem_id: 1
+  hdtype: MyString
+  hdsize: 1
+  hd_id: 1
+  osname: MyString
+  os_id: 1
+  vatprice: 9.99
+  image_url: MyString
+
+two:
+  name: MyString
+  manu: MyString
+  model: MyString
+  desc: MyText
+  procname: MyString
+  proc_id: 1
+  memsize: 1
+  mem_id: 1
+  hdtype: MyString
+  hdsize: 1
+  hd_id: 1
+  osname: MyString
+  os_id: 1
+  vatprice: 9.99
+  image_url: MyString

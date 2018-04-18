@@ -1,0 +1,92 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :product_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :manu %>
+    <%= form.text_field :manu, id: :product_manu %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model, id: :product_model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desc %>
+    <%= form.text_area :desc, id: :product_desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :procname %>
+    <%= form.text_field :procname, id: :product_procname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :proc_id %>
+    <%= form.number_field :proc_id, id: :product_proc_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :memsize %>
+    <%= form.number_field :memsize, id: :product_memsize %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mem_id %>
+    <%= form.number_field :mem_id, id: :product_mem_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hdtype %>
+    <%= form.text_field :hdtype, id: :product_hdtype %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hdsize %>
+    <%= form.number_field :hdsize, id: :product_hdsize %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hd_id %>
+    <%= form.number_field :hd_id, id: :product_hd_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :osname %>
+    <%= form.text_field :osname, id: :product_osname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :os_id %>
+    <%= form.number_field :os_id, id: :product_os_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vatprice %>
+    <%= form.text_field :vatprice, id: :product_vatprice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.text_field :image_url, id: :product_image_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

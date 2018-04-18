@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Manu:</strong>
+  <%= @product.manu %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @product.model %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @product.desc %>
+</p>
+
+<p>
+  <strong>Procname:</strong>
+  <%= @product.procname %>
+</p>
+
+<p>
+  <strong>Proc:</strong>
+  <%= @product.proc_id %>
+</p>
+
+<p>
+  <strong>Memsize:</strong>
+  <%= @product.memsize %>
+</p>
+
+<p>
+  <strong>Mem:</strong>
+  <%= @product.mem_id %>
+</p>
+
+<p>
+  <strong>Hdtype:</strong>
+  <%= @product.hdtype %>
+</p>
+
+<p>
+  <strong>Hdsize:</strong>
+  <%= @product.hdsize %>
+</p>
+
+<p>
+  <strong>Hd:</strong>
+  <%= @product.hd_id %>
+</p>
+
+<p>
+  <strong>Osname:</strong>
+  <%= @product.osname %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @product.os_id %>
+</p>
+
+<p>
+  <strong>Vatprice:</strong>
+  <%= @product.vatprice %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @product.image_url %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

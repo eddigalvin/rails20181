@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shopping Cart</h1>
+
+<table>
+  <thead>
+    <tr>
+      
+      <th>Item</th>
+      <th> Price</th>
+      <th> Quantity</th>
+      <th>&nbspItems Total</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <%  @cart.orderitems.each do |item| %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td><%= item.product.vatprice %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.subtotal %></td>
+        <td><%= link_to 'Remove Item', "/orderitems/#{item.id}",  method: :delete, data:{ confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_cart_path(@cart) %></td>
+       
+      </tr>
+    <% end %>
+    <tr><td>Total Cart Amount <%= @cart.cart_total %></td>
+     <td><%= link_to 'Destroy Cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %></td></tr>
+  </tbody>
+</table>
+<%= button_to "CONTINUE SHOPPING", "/products", :method => :get, :form_class => "my_class" %>
+<%= button_to "GO TO CHECKOUT", "/orders/new", :method => :get, :form_class => "my_class" %>
+
+<br>
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>
