@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :carts
   get 'cart/index'
-
+  root to: "home#index"
   resources :orderitems
   resources :orders
   resources :addresses

@@ -43,14 +43,19 @@
         <td><%= product.vatprice %></td>
         <td><%= product.image_url %></td>
         <td><a href="/orderitems/create/<%= product.id %>">ADD TO CART</a></td>
+        
+        <% <% if current_user.admin? %> %>
+        
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if current_user.admin? %>
 <%= link_to 'New Product', new_product_path %>
+<% end %>
