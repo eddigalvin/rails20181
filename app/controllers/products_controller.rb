@@ -19,6 +19,11 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @orderitem = current_order.orderitems.new
+    if params[:search]
+      @products = Product.search(params[:search])
+    else
+      return Product.all
+    end
   end
   
   

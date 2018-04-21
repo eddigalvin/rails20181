@@ -1,10 +1,17 @@
 class OrdersController < ApplicationController
-  include module Ensure_admin
-  before_filter :authenticate_user!
-  before_filter :ensure_admin, :only => [:new, :create, :edit, :destroy]
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
-   include Usercart
-  before_action :set_cart, only: [:create , :destroy]
+ # include module Ensure_admin
+ 
+ # before_filter :authenticate_user!
+  #before_filter :ensure_admin, :only => [:new, :create, :edit, :destroy]
+ # before_action :set_order, only: [:show, :edit, :update, :destroy]
+   #include Usercart
+    def set_cart
+        @cart = Cart.find(session[:cart_id])
+        rescue ActiveRecord::RecordNotFound
+        @cart=Cart.create
+        session[:cart_id]=@cart.id
+    end
+  before_action :set_cart, only: [:create , :destroy , :new , :show]
 
   # GET /orders
   # GET /orders.json
@@ -15,6 +22,8 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+   # @order=Order.find_by_user_id(current_user.id)
+    @order = Order.find(session[:order_id])
   end
 
   # GET /orders/new
@@ -32,11 +41,15 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    
     #@order.cart_id = @cart.id
+    @order.user_id = current_user.id #session[:user_id]
     @order.add_orderitems(@cart)
-   # @order.total = @cart.cart_total
+    @order.total = @cart.cart_total
     respond_to do |format|
       if @order.save
+        #need to check below line
+        session[:order_id]=@order.id
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
@@ -83,3 +96,4 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:user_id, :salesTax, :shippingFee, :total, :methodOfPayment)
     end
 end
+
