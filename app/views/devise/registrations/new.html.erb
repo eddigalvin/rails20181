@@ -1,4 +1,4 @@
-<h2>Sign up ppp ppppppppppppppppp p </h2>
+<h2>Sign up ppp</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -8,6 +8,7 @@
     <%= f.text_field :fname, id: :user_fname %>
   </div>
 
+ 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

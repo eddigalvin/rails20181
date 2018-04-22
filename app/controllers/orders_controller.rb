@@ -6,10 +6,12 @@ class OrdersController < ApplicationController
  # before_action :set_order, only: [:show, :edit, :update, :destroy]
    #include Usercart
     def set_cart
-        @cart = Cart.find(session[:cart_id])
-        rescue ActiveRecord::RecordNotFound
+        @cart = Cart.find_by_id(session[:cart_id])
+        #rescue ActiveRecord::RecordNotFound
+        if @cart==nil
         @cart=Cart.create
         session[:cart_id]=@cart.id
+        end
     end
   before_action :set_cart, only: [:create , :destroy , :new , :show]
 
