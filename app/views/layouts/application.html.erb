@@ -19,6 +19,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
+</style>
   </head>
 
   <body>
@@ -28,37 +30,59 @@
     <div class="row">
       <div class="col-lg-4">Contact Us</div>
         <div class="col-lg-4">Delivery Service</div>
-          <div class="col-lg-4">My Shop Account</div>
+          <div class="col-lg-4"><a href = 'users/sign_in' style="color: white;}">My Shop Account</a></div>
       </div>
       </div>
+      
       <div class="container-fluid-2">
        <div class="row">
-      
-         
-      <div class="col-lg-4">  The<br>Laptop<br>EShop</div>
+         <div class="col-lg-1">
+            <%=image_tag("logos/redlap.png",width:'60px') %><a href = '/' style="color: white;}">
+            </div>
+       <div class="col-lg-3"> <a href = '/' style="color: white;}"> 
+       The Laptop EShop</a></div>
         <div class="col-lg-4">
           <%= form_tag(products_path, :method => "get", id: "searchbar" ) do %>
-          <%= submit_tag "Search", :name => nil %>
+          
           <%= text_field_tag :search , params[:search], placeholder: "Search here" %>
           <% end %>
         </div>
           <div class="col-lg-4">
-            Your Cart <%= render @cart %>
+            <%=image_tag("logos/redcart.png",width:'40px',color:'red') %> Your Cart
+            <% if user_signed_in? %>
+            <%= render @cart %>
+            <%= button_to "shop", "/products", :method => :get, :form_class => "my_class" %>
+            <%= button_to "checkout", "/orders/new", :method => :get, :form_class => "my_class" %>
+            <% end %>
             </div>
+      </div>
+      </div>
+      
+       
+       <div class="container-fluid-3">
+    <div class="row">
+      <div class="col-lg-4">HP</div>
+        <div class="col-lg-4">LENOVO</div>
+          <div class="col-lg-4">DELL</div>
       </div>
       </div>
       
       
     <%= yield %>
+    
     <% if user_signed_in? %>
+    
     <div>
-      Signed in as <% current_user.email %> (<%= link_to 'Sign out', destroy_user_session_path,
+      Signed in as <%= current_user.email %> (<%= link_to 'Sign out', destroy_user_session_path,
       :method => :delete %>)
     </div>
-    
+    <% end %>
+    <% if !user_signed_in?  %>
     <%= link_to 'Register', new_user_registration_path %> or
     <%= link_to 'Sign in', new_user_session_path %>
     <% end %>
+    
+    
     
     
     <div class="container-fluid-1">

@@ -15,20 +15,29 @@
  */
 body, html, .container-fluid-1,.container-fluid-2 {
      height: 50%;
+/*     width: 100%;
+    white-space: nowrap; */
 }
 
-.container-fluid-1,.container-fluid-2 {
+
+
+.linkclass{color:white;}
+
+.container-fluid-1,.container-fluid-2 , .container-fluid-3 {
     /*background-color: #f1f1f1;*/
     background-color: #ee0000;
+    
     color:white;
     text-align-last: center;
       
       margin-bottom: 0;
       border-radius: 0;
-    }
-    
-    .container-fluid-2{
       
+    }
+    .container-fluid-3
+    {background-color: #0000ff; height: 30%}
+    
+    .container-fluid-2,.container-fluid-2.a{ color:white;
       font-size: 150%;
     }
     
@@ -38,7 +47,7 @@ body, html, .container-fluid-1,.container-fluid-2 {
     /* Set gray background color and 100% height */
     .sidenav {
       padding-top: 20px;
-      background-color: #f1f1f1;
+      background-color:#f1f1f1 ;
       height: 100%;
     }
     
