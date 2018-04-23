@@ -9,4 +9,4 @@ end
  #     t.string :manu
   #    t.string :model
    #   t.text :desc
-    #  t.string :procname
+    #  t.string :proc

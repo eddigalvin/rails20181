@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Order_id</th>
       <th>User</th>
       <th>Salestax</th>
       <th>Shippingfee</th>
@@ -15,9 +16,10 @@
   </thead>
 
   <tbody>
-     
+     <% if current_user.admin? %>
     <% @orders.each do |order| %>
       <tr>
+        <td><%= order.id %></td>
         <td><%= order.user_id %></td>
         <td><%= order.cart_id %></td>
         <td><%= order.salesTax %></td>
@@ -29,9 +31,11 @@
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if current_user.admin? %>
 <%= link_to 'New Order', new_order_path %>
+<% end %>

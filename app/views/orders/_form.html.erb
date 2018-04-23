@@ -10,7 +10,8 @@
       </ul>
     </div>
   <% end %>
-
+<% if current_user!=nil %>
+        <% if current_user.admin? %>
   <div class="field">
     <%= form.label :user_id %>
     <%= form.number_field :user_id, id: :order_user_id %>
@@ -35,6 +36,8 @@
     <%= form.label :methodOfPayment %>
     <%= form.text_field :methodOfPayment, id: :order_methodOfPayment %>
   </div>
+  <% end %>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

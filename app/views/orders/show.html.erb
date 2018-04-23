@@ -1,13 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_user.admin? %>
+<% end %>
+
 <p>
   <strong>User:</strong>
-  <%= @order.user_id %>
+  <%= current_user.email %>
 </p>
 
 <p>
-  <strong>Cart:</strong>
-  <%= @order.cart_id %>
+  <strong>OrderNumber:</strong>
+  <%= @order.id %>
 </p>
 
 <p>
@@ -25,10 +28,17 @@
   <%= @order.total %>
 </p>
 
-<p>
-  <strong>Methodofpayment:</strong>
-  <%= @order.methodOfPayment %>
-</p>
+
+<%#PAYPAL FINISH AND PAY  %>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="FZ3H862JUYGL6">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<%= button_to "CANCEL ORDER", "/orders/destroy", :method => :delete, :form_class => "my_class" %>
+
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

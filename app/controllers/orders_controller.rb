@@ -4,15 +4,8 @@ class OrdersController < ApplicationController
  # before_filter :authenticate_user!
   #before_filter :ensure_admin, :only => [:new, :create, :edit, :destroy]
  # before_action :set_order, only: [:show, :edit, :update, :destroy]
-   #include Usercart
-    def set_cart
-        @cart = Cart.find_by_id(session[:cart_id])
-        #rescue ActiveRecord::RecordNotFound
-        if @cart==nil
-        @cart=Cart.create
-        session[:cart_id]=@cart.id
-        end
-    end
+   include Usercart
+    
   before_action :set_cart, only: [:create , :destroy , :new , :show]
 
   # GET /orders
@@ -39,15 +32,16 @@ class OrdersController < ApplicationController
   def edit
   end
 
-  # POST /orders
-  # POST /orders.json
+  
   def create
     @order = Order.new(order_params)
     
-    #@order.cart_id = @cart.id
+    
     @order.user_id = current_user.id #session[:user_id]
     @order.add_orderitems(@cart)
     @order.total = @cart.cart_total
+    @order.salesTax = 13.50
+    @order.shippingFee = 20.00
     respond_to do |format|
       if @order.save
         #need to check below line
@@ -80,7 +74,9 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
+    @order = Order.find(session[:order_id])
     @order.destroy
+    session[:order_id]=nil
     respond_to do |format|
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
@@ -88,14 +84,14 @@ class OrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+   
     def set_order
       @order = Order.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:user_id, :salesTax, :shippingFee, :total, :methodOfPayment)
+      #params.require(:order).permit()
     end
 end
 

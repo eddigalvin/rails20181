@@ -2,25 +2,56 @@
 
 <div class="container-fluid text-center">    
   <div class="row content">
-    <div class="col-sm-2 sidenav">
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+    <div class="col-sm-2 sidenav"><br><br>
+      
+     SELECT BY MANUFACTURER:<br><br>
+     
+    
+
+ 
+
+     
+
+<%= select_tag(:option, options_for_select([["HP","HP"],["Lenovo","Lenovo"],["Dell","Dell"]], params[:option] ), class:"select") %>     
+
+<br><br>
+
+    
+    <br><br> SELECT BY PRICE:<br><br>
+
+<%= select_tag(:option, options_for_select([["Below 500euro",1],["Below 1000euro",2],["Below 1500euro",3]], params[:option] ), class:"select") %>
+    
+ 
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>Welcome</h1>
+      <h1>Welcome To The Laptop EShop</h1>
       <p></p>
       <hr>
-      <h3>Test</h3>
+      <h3></h3>
+<figure>      
+      <%=image_tag("logos/HP1.jpg",width:'200px',:class => " float-left") %>
+      <figcaption>HP 4Gbmem 500GbHd £300euro</figcaption>
+</figure>
+<figure>      
+      <%=image_tag("logos/LENOVO-IDEAPAD-110.jpg",width:'200px',:class => " float-left") %>
+      <figcaption>Lenovo 4Gbmem 500GbHd £900euro</figcaption>
+</figure>
+<figure>      
+      <%=image_tag("logos/Dell Inspiron.jpg",width:'200px',:class => " float-left") %>
+      <figcaption>Dell 4Gbmem 500GbHd £600euro</figcaption>
+      </figure>
       <p></p>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
-        <p>ADS</p>
-      </div>
+  <br><br><p>SPECIAL OFFERS</p><br><br>
+      </div><br><br>
       <div class="well">
-        <p>ADS</p>
-      </div>
+        <p>WARRANTY</p>
+      </div><br><br>
+      <div class="well">
+  <br><br><p>INSURANCE</p><br><br>
+      </div><br><br>
     </div>
   </div>
 </div>
