@@ -9,9 +9,12 @@
 
 TOTAL ORDER AMOUNT
 <%= render  @cart %>
-
+<%= button_to "Go Back To Cart", "/carts/#{session[:cart_id]}", :method => :get, :form_class => "my_class" %>
 
 </div>
 </div>
-
+        <% if current_user!=nil %>
+        <% if current_user.admin? %>
 <%= link_to 'Back', orders_path %>
+<%end%>
+<%end%>

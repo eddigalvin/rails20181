@@ -27,7 +27,7 @@
       <h1>Welcome To The Laptop EShop</h1>
       <p></p>
       <hr>
-      <h3></h3>
+      <h3><%= button_to "       SHOP NOW       ", "/products", :method => :get, :form_class => "my_class" %></h3>
 <figure>      
       <%=image_tag("logos/HP1.jpg",width:'200px',:class => " float-left") %>
       <figcaption>HP 4Gbmem 500GbHd £300euro</figcaption>
@@ -40,6 +40,7 @@
       <%=image_tag("logos/Dell Inspiron.jpg",width:'200px',:class => " float-left") %>
       <figcaption>Dell 4Gbmem 500GbHd £600euro</figcaption>
       </figure>
+      <h3><%= button_to "       SHOP NOW       ", "/products", :method => :get, :form_class => "my_class" %></h3>
       <p></p>
     </div>
     <div class="col-sm-2 sidenav">

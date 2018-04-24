@@ -39,6 +39,9 @@
 
 <%= button_to "CANCEL ORDER", "/orders/destroy", :method => :delete, :form_class => "my_class" %>
 
-
+        <% if current_user!=nil %>
+        <% if current_user.admin? %>
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
+<%end%>
+<%end%>

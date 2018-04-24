@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
- # include module Ensure_admin
+ # include  Ensure_admin
+
  
  # before_filter :authenticate_user!
   #before_filter :ensure_admin, :only => [:new, :create, :edit, :destroy]

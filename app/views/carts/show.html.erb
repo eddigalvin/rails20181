@@ -34,6 +34,9 @@
 <%= button_to "GO TO CHECKOUT", "/orders/new", :method => :get, :form_class => "my_class" %>
 
 <br>
-
+<% if current_user!=nil %>
+        <% if current_user.admin? %>
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>
+<%end%>
+<%end%>
